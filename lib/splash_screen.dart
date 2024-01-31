@@ -12,37 +12,38 @@ class SplashScreen extends StatelessWidget {
             Image.asset('images/csitlogo.png'),
             SizedBox(height: 20.0),
             Text(
-              'Welcome CSIT Fam',
+              'MIDTERM CIT3534',
               style: TextStyle(
                 fontSize: 30,
                 color: Colors.blue,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 30.0),
             SizedBox(
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
-                    ));
-                  },
-                  style: OutlinedButton.styleFrom(
-                    fixedSize: Size(300, 50),
-                    side: BorderSide(
-                      color: Color.fromARGB(255, 164, 128, 225),
-                      width: 2.0,
-                    ),
-                    backgroundColor: Color.fromARGB(255, 164, 128, 225),
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => LoginScreen(),
+                  ));
+                },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(50, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                  child: Text(
-                    'เริ่มต้นการใช้งาน',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
+                  backgroundColor: Color.fromARGB(255, 164, 128, 225),
+                ),
+                child: Text(
+                  'ไปยังหน้าลงชื่อเข้าใช้งาน',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
                   ),
-                ))
+                ),
+              ),
+            ),
           ],
         ),
       ),

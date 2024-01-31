@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('ลงชื่อเข้าใช้งาน'),
       ),
       body: Center(
         child: Padding(
@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
             children: <Widget>[
               Image(
                 image: AssetImage(
-                    'images/csitlogo.png'), // เปลี่ยนเป็นที่อยู่ของรูปภาพที่คุณใช้
+                    'images/logo.png'), // เปลี่ยนเป็นที่อยู่ของรูปภาพที่คุณใช้
                 width: 250.0, // กำหนดความกว้าง
                 height: 250.0, // กำหนดความสูง
               ),
@@ -71,7 +71,13 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   SubmitLogin(context);
                 },
-                child: Text('Login'),
+                child: Text(
+                  'เข้าใช้งาน',
+                  style: TextStyle(fontSize: 20),
+                ),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                ),
               ),
               SizedBox(height: 8.0),
               TextButton(
@@ -81,7 +87,13 @@ class LoginScreen extends StatelessWidget {
                     builder: (context) => RegisterUserForm(),
                   ));
                 },
-                child: Text('Register!'),
+                child: Text(
+                  'ลงทะเบียน',
+                  style: TextStyle(fontSize: 20),
+                ),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                ),
               ),
             ],
           ),
@@ -96,14 +108,14 @@ void showNotConnectDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Error Connection???'),
-        content: Text('Your Connection Error..'),
+        title: Text('การเชื่อมต่อล้มเหลว???'),
+        content: Text('การเชื่อมต่อของคุณล้มเหลว...'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop(); // ปิดป๊อปอัพ
             },
-            child: Text('Go Back'),
+            child: Text('กลับ'),
           ),
         ],
       );
@@ -116,8 +128,8 @@ void showSuccessDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Successfully'),
-        content: Text('Your information has been successfully saved..'),
+        title: Text('สำเร็จ!'),
+        content: Text('ทำการลงชื่อเข้าใช้สำเร็จเรียบร้อย'),
         actions: [
           TextButton(
             onPressed: () {
@@ -125,7 +137,7 @@ void showSuccessDialog(BuildContext context) {
               Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => MainMenu()));
             },
-            child: Text('Goto Main menu'),
+            child: Text('ไปยังหน้าเมนูหลัก'),
           ),
         ],
       );
@@ -138,8 +150,9 @@ void showLoginErrorDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Login Error'),
-        content: Text('Username & Password Not found..'),
+        title: Text('ลงชื่อเช้าใช้ล้มเหลว'),
+        content: Text(
+            'ไม่มีข้อมูลผู้ใช้นี้ กรุณาลองตรวจสอบ Email หรือ password ของท่านใหม่'),
         actions: [
           TextButton(
             onPressed: () {
